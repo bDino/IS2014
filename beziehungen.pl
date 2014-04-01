@@ -49,9 +49,9 @@ oma(X,Y):- mutter(X,Z),mutter(Z,Y).
 % X und Y geschwister
 geschwister(X,Y):- vater(Z,X),vater(Z,Y),mutter(J,X),mutter(J,Y).
 % X und Y sind halbgeschwister
-halb_geschwister(X,Y):- vater(Z,X),vater(Z,Y),mutter(K,X),mutter(G,Y).
+halb_geschwister(X,Y):- vater(Z,X),vater(Z,Y),mutter(_,X),mutter(_,Y).
 % X und Y sind halbgeschister
-halb_geschwister(X,Y):- vater(Z,X),vater(J,Y),mutter(K,X),mutter(K,Y).
+halb_geschwister(X,Y):- vater(_,X),vater(_,Y),mutter(K,X),mutter(K,Y).
 % X ist schwester von
 schwester(X,Y):- weiblich(X),geschwister(X,Y).																	
 % X ist Tante von Y
