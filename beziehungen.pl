@@ -22,8 +22,8 @@ ehemann(rolf,sabrina).																			% Rolf ist Sabrinas Mann
 
 % Beziehungen exemplarisch
 
-eltern(X,Y):- vater(X,Y);mutter(X,Y). 															% X ist Elternteil von Y
-opa(X,Y):- vater(X,olaf).																		% X ist Opa von Y
+eltern(X,Y):- vater(X,Y);mutter(X,Y). 															% X ist Elternteil von Y				
+opa(X,Y):- vater(X,Z),vater(Z,Y).																			% X ist Opa von Y
 oma(X,Y):- mutter(X,siglinde).																	% X ist Opa von Y
 geschwister(X,Y):- vater(Z,X),vater(Z,Y),mutter(Z,X),mutter(Z,Y).								% X und Y geschwister
 halb_schwester(X,Y):- weiblich(X),vater(Z,X),vater(Z,Y);weiblich(X),mutter(Z,X),mutter(Z,Y).	% X ist halbschwester von				
