@@ -1,25 +1,43 @@
 % Implemtieren von Verwandschaftsbeziehungen
-% Alle Teilnehmer: Erste Hierarchie
-[load].
-weiblich(susi).
-weiblich(hannelore).
-weiblich(siglinde).
-maennlich(stefan).
-maennlich(hans).
-maennlich(olaf).
+% Alle Teilnehmer:
+/*
+
+Oma/Opa: 					Mia und Rolf
+						
+Eltern:      Eva und Thomas			Elsbeth und Wolfang
+										
+Kinder:		Klaas | Ronja			Jenzel | Ulf | Katrin | Frauke
+*/
+
+weiblich(mia).
+weiblich(eva).
+weiblich(elsbeth).
+weiblich(katrin).
+weiblich(frauke).
+weiblich(ronja).
+maennlich(rolf).
+maennlich(thomas).
+maennlich(klaas).
+maennlich(wolfgang).
+maennlich(jenzel).
+maennlich(ulf).
 
 % X ist von Y Beziehung (mutter(X,Y))
-mutter(siglinde,susi).																			
-mutter(siglinde,stefan).
-mutter(siglinde,johanna).
-mutter(hannelore,siglinde).																		
-mutter(hannelore,stefi).																		
-vater(olaf,susi). 																				
-vater(olaf,sabrina).																			
-vater(olaf,stefan). 																			
-vater(hans,olaf). 																				
-vater(hans,stefi).																				
-ehemann(rolf,sabrina).																			
+mutter(mia,eva).																			
+mutter(mia,elsbeth).
+mutter(eva,klaas).
+mutter(eva,ronja).																		
+mutter(elsbeth,jenzel).
+mutter(elsbeth,ulf).
+mutter(elsbeth,katrin).
+mutter(elsbeth,frauke).
+vater(rolf,eva). 																				
+vater(rolf,elsbeth).																			
+vater(thomas,ronja). 																			
+vater(wolfgang,jenzel). 																				
+vater(wolfgang,ulf).																				
+vater(wolfgang,katrin).																				
+vater(wolfgang,frauke).																				
 
 % Beziehungen exemplarisch
 % X ist Elternteil von Y
