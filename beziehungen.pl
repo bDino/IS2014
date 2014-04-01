@@ -33,7 +33,8 @@ mutter(elsbeth,katrin).
 mutter(elsbeth,frauke).
 vater(rolf,eva). 																				
 vater(rolf,elsbeth).																			
-vater(thomas,ronja). 																			
+vater(thomas,ronja).
+vater(thomas,klaas). 																			
 vater(wolfgang,jenzel). 																				
 vater(wolfgang,ulf).																				
 vater(wolfgang,katrin).																				
@@ -49,16 +50,16 @@ oma(X,Y):- mutter(X,Z),mutter(Z,Y).
 % X und Y geschwister
 geschwister(X,Y):- vater(Z,X),vater(Z,Y),mutter(J,X),mutter(J,Y).
 % X und Y sind halbgeschwister
-halb_geschwister(X,Y):- vater(Z,X),vater(Z,Y),mutter(K,X),mutter(G,Y).
+halb_geschwister(X,Y):- vater(Z,X),vater(Z,Y),mutter(_,X),mutter(_,Y).
 % X und Y sind halbgeschister
-halb_geschwister(X,Y):- vater(Z,X),vater(J,Y),mutter(K,X),mutter(K,Y).
+halb_geschwister(X,Y):- vater(_,X),vater(_,Y),mutter(K,X),mutter(K,Y).
 % X ist schwester von
 schwester(X,Y):- weiblich(X),geschwister(X,Y).																	
 % X ist Tante von Y
-tante(X,Y):- weiblich(X),eltern(Z,Y),geschwister(Z,X).					
+tante(X,Y):- weiblich(X),eltern(Z,Y),not(eltern(X,Y)),geschwister(Z,X).					
 % X ist Onkel von Y
 onkel(X,Y):- maennlich(X),eltern(Z,Y),geschwister(Z,X).
 % X ist Cousin von Y
-cousin(X,Y):- eltern(Z,Y),eltern(J,X),geschwister(Z,J). 											
+cousin(X,Y):- eltern(Z,Y),eltern(J,X),geschwister(Z,J),not(geschwister(X,Y)).	 											
 % X ist Schwager von Y
 schwager(X,Y):- geschwister(Z,Y),ehemann(X,Z).													
