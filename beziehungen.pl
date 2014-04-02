@@ -61,10 +61,12 @@ halb_geschwister(X,Y):- vater(_,X),vater(_,Y),mutter(K,X),mutter(K,Y).
 % X ist schwester von
 schwester(X,Y):- weiblich(X),geschwister(X,Y).																	
 % X ist Tante von Y
-tante(X,Y):- weiblich(X), ((eltern(Z, Y), geschwister(X, Z)) ; (eltern(Z, Y), geschwister(Z, C), ehe(X, C))), not(eltern(X,Y)).				
+tante(X,Y) :- weiblich(X), eltern(Z, Y), ehe(X, A), geschwister(Z, A), not(eltern(X, Y)), !. 
+tante(X,Y) :- weiblich(X), eltern(Z, Y), geschwister(Z, X), not(eltern(X,Y)).
+
 % X ist Onkel von Y
 onkel(X,Y) :- maennlich(X), eltern(Z, Y), ehe(X, A), geschwister(Z, A), not(eltern(X, Y)), !. 
-onkel(X,Y) :- maennlich(X), eltern(Z, Y), geschwister(Z, X).	
+onkel(X,Y) :- maennlich(X), eltern(Z, Y), geschwister(Z, X), not(eltern(X,Y)).	
 % X ist Cousin von Y
 cousin(X,Y):- eltern(Z,Y),eltern(J,X),geschwister(Z,J),not(geschwister(X,Y)).	 											
 % X ist Schwager von Y
