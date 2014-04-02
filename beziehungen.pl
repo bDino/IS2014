@@ -61,7 +61,8 @@ opa(X,Y):- vater(X,Z),eltern(Z,Y).
 oma(X,Y):- mutter(X,Z),eltern(Z,Y).
 
 % X und Y geschwister
-geschwister(X,Y):- vater(Z,X),vater(Z,Y),mutter(J,X),mutter(J,Y).
+geschwister(X,Y) :- eltern(A, X), eltern(A, Y), X \== Y.
+
 % X und Y sind halbgeschwister
 halb_geschwister(X,Y):- vater(Z,X),vater(Z,Y),mutter(_,X),mutter(_,Y).
 % X und Y sind halbgeschister
