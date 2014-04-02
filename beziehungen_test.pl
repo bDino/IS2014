@@ -14,4 +14,18 @@ test(eltern_f_th, [fail]) :- eltern(thomas, jenzel) ; eltern(thomas, katrin) ; e
 test(eltern_f_mr, [fail]) :- eltern(rolf, wolfgang) ; eltern(rolf, thomas) ; eltern(mia, wolfgang) ; eltern(mia, thomas) ; eltern(mia, jenzel) ; eltern(rolf, klaas).
 test(eltern_f_reverse, [fail]) :- eltern(katrin, elsbeth) ; eltern(frauke, mia) ; eltern(ulf, wolfgang) ; eltern(jenzel, eva).
 test(eltern_f_other, [fail]) :- eltern(katrin, jenzel) ; eltern(katrin, klaas) ; eltern(jenzel, ronja) ; eltern(frauke, ulf).
+
+
+% Geschwister test
+
+test(geschwister_m) :- geschwister(jenzel, katrin), geschwister(jenzel, frauke), geschwister(jenzel, ulf),
+					   geschwister(katrin, jenzel), geschwister(katrin, frauke), geschwister(katrin, ulf),
+					   geschwister(frauke, jenzel), geschwister(frauke, katrin), geschwister(frauke, ulf),
+					   geschwister(ulf, jenzel), geschwister(ulf, frauke), geschwister(ulf, katrin).
+
+test(geschwister_l) :- geschwister(ronja, klaas), geschwister(klaas, ronja).
+
+test(geschwister_f, [fail]) :- geschwister(jenzel, klaas) ; geschwister(ronja, katrin) ; geschwister(jenzel, elsebeth) ; geschwister(thomas, rolf) ; 
+					   geschwister(wolfgang, klaas) ; geschwister(mia, eva) ; geschwister(rolf, mia) ; geschwister(elsbeth, wolfgang) ; 
+					   geschwister(wolfgang, thomas).
 :-end_tests(beziehungen).
