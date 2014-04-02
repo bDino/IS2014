@@ -61,22 +61,24 @@ opa(X,Y):- vater(X,Z),eltern(Z,Y).
 oma(X,Y):- mutter(X,Z),eltern(Z,Y).
 
 % X und Y geschwister
-geschwister(X,Y) :- eltern(A, X), eltern(A, Y), X \== Y.
+geschwister(X,Y) :- eltern(A, X), eltern(A, Y), X \== Y, !.
 
 % X und Y sind halbgeschwister
 halb_geschwister(X,Y):- vater(Z,X),vater(Z,Y),mutter(_,X),mutter(_,Y).
+
 % X und Y sind halbgeschister
 halb_geschwister(X,Y):- vater(_,X),vater(_,Y),mutter(K,X),mutter(K,Y).
+
 % X ist schwester von
 schwester(X,Y):- weiblich(X),geschwister(X,Y).		
 
 															
 % X ist Tante von Y
-tante(X,Y) :- weiblich(X), eltern(Z, Y), ehe(X, A), geschwister(Z, A), not(eltern(X, Y)), !. 
+tante(X,Y) :- weiblich(X), eltern(Z, Y), ehe(X, A), geschwister(Z, A), not(eltern(X, Y)). 
 tante(X,Y) :- weiblich(X), eltern(Z, Y), geschwister(Z, X), not(eltern(X,Y)).
 
 % X ist Onkel von Y
-onkel(X,Y) :- maennlich(X), eltern(Z, Y), ehe(X, A), geschwister(Z, A), not(eltern(X, Y)), !. 
+onkel(X,Y) :- maennlich(X), eltern(Z, Y), ehe(X, A), geschwister(Z, A), not(eltern(X, Y)). 
 onkel(X,Y) :- maennlich(X), eltern(Z, Y), geschwister(Z, X), not(eltern(X,Y)).	
 
 % X ist Cousin von Y
