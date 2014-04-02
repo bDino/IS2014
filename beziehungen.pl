@@ -47,8 +47,8 @@ vater(wolfgang,frauke).
 
 ehe(mia,rolf).
 ehe(eva,thomas).
-ehe(elsbeth,wolfgang).																				
-ehe(X,Y):- ehe(Y,X), !.
+ehe(elsbeth,wolfgang).
+verheiratet(X,Y):- ehe(X,Y) ; ehe(Y,X).
 
 % Beziehungen exemplarisch
 % X ist Elternteil von Y
@@ -74,17 +74,17 @@ schwester(X,Y):- weiblich(X),geschwister(X,Y).
 
 															
 % X ist Tante von Y
-tante(X,Y) :- weiblich(X), eltern(Z, Y), ehe(X, A), geschwister(Z, A), not(eltern(X, Y)). 
+tante(X,Y) :- weiblich(X), eltern(Z, Y), verheiratet(X, A), geschwister(Z, A), not(eltern(X, Y)). 
 tante(X,Y) :- weiblich(X), eltern(Z, Y), geschwister(Z, X), not(eltern(X,Y)).
 
 % X ist Onkel von Y
-onkel(X,Y) :- maennlich(X), eltern(Z, Y), ehe(X, A), geschwister(Z, A), not(eltern(X, Y)). 
+onkel(X,Y) :- maennlich(X), eltern(Z, Y), verheiratet(X, A), geschwister(Z, A), not(eltern(X, Y)). 
 onkel(X,Y) :- maennlich(X), eltern(Z, Y), geschwister(Z, X), not(eltern(X,Y)).	
 
 % X ist Cousin von Y
 cousin(X,Y):- eltern(Z,Y),eltern(J,X),geschwister(Z,J),not(geschwister(X,Y)).	 											
 % X ist Schwager von Y
-schwager(X,Y):- maennlich(X),geschwister(Z,Y),ehe(Z,X),not(ehe(X,Y)).													
+schwager(X,Y):- maennlich(X),geschwister(Z,Y),verheiratet(Z,X),not(verheiratet(X,Y)).													
 
 
 

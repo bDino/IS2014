@@ -28,4 +28,11 @@ test(geschwister_l) :- geschwister(ronja, klaas), geschwister(klaas, ronja).
 test(geschwister_f, [fail]) :- geschwister(jenzel, klaas) ; geschwister(ronja, katrin) ; geschwister(jenzel, elsebeth) ; geschwister(thomas, rolf) ; 
 					   geschwister(wolfgang, klaas) ; geschwister(mia, eva) ; geschwister(rolf, mia) ; geschwister(elsbeth, wolfgang) ; 
 					   geschwister(wolfgang, thomas).
+
+
+% Ehe test
+test(verheiratet) :- verheiratet(mia, rolf), verheiratet(rolf, mia), verheiratet(elsbeth, wolfgang), verheiratet(wolfgang, elsbeth), verheiratet(thomas, eva), verheiratet(eva, thomas).
+
+test(verheiratet_f, [fail]) :- verheiratet(mia, wolfgang) ; verheiratet(elsbeth, thomas) ; verheiratet(eva, rolf) ; verheiratet(katrin, jenzel) ; verheiratet(ulf, ronja) ; verheiratet(frauke, rolf).
+
 :-end_tests(beziehungen).
