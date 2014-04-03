@@ -19,15 +19,15 @@ test(eltern_f_other, [fail]) :- eltern(katrin, jenzel) ; eltern(katrin, klaas) ;
 % Geschwister test
 
 test(geschwister_m) :- geschwister(jenzel, katrin), geschwister(jenzel, frauke), geschwister(jenzel, ulf),
-					   geschwister(katrin, jenzel), geschwister(katrin, frauke), geschwister(katrin, ulf),
-					   geschwister(frauke, jenzel), geschwister(frauke, katrin), geschwister(frauke, ulf),
-					   geschwister(ulf, jenzel), geschwister(ulf, frauke), geschwister(ulf, katrin).
+                                           geschwister(katrin, jenzel), geschwister(katrin, frauke), geschwister(katrin, ulf),
+                                           geschwister(frauke, jenzel), geschwister(frauke, katrin), geschwister(frauke, ulf),
+                                           geschwister(ulf, jenzel), geschwister(ulf, frauke), geschwister(ulf, katrin).
 
 test(geschwister_l) :- geschwister(ronja, klaas), geschwister(klaas, ronja).
 
 test(geschwister_f, [fail]) :- geschwister(jenzel, klaas) ; geschwister(ronja, katrin) ; geschwister(jenzel, elsebeth) ; geschwister(thomas, rolf) ; 
-					   geschwister(wolfgang, klaas) ; geschwister(mia, eva) ; geschwister(rolf, mia) ; geschwister(elsbeth, wolfgang) ; 
-					   geschwister(wolfgang, thomas).
+                                           geschwister(wolfgang, klaas) ; geschwister(mia, eva) ; geschwister(rolf, mia) ; geschwister(elsbeth, wolfgang) ; 
+                                           geschwister(wolfgang, thomas).
 
 
 % Ehe test
@@ -43,4 +43,23 @@ test(onkel_w) :- onkel(wolfgang, klaas), onkel(wolfgang, ronja).
 test(onkel_f_th, [fail]) :- onkel(thomas, eva) ; onkel(thomas, mia) ; onkel(thomas, klaas).
 test(onkel_f_wg, [fail]) :- onkel(wolfgang, elsbeth) ; onkel(wolfgang, rolf) ; onkel(wolfgang, thomas) ; onkel(wolfgang, jenzel).
 test(onkel_f_oth, [fail]) :- onkel(jenzel, wolfgang) ; onkel(katrin, klaas) ; onkel(klaas, ronja) ; onkel(ulf, rolf).
-:-end_tests(beziehungen).
+
+% Tante test
+test(tante_ev) :- tante(eva, jenzel), tante(eva, ulf), tante(eva, katrin), tante(eva, frauke).
+test(tante_els) :- tante(elsbeth, klaas), tante(elsbeth, ronja).
+
+test(tante_f, [fail]) :- tante(jenzel, katrin) ; tante(eva, klaas) ; tante(mia, elsbeth) ; tante(ronja, klaas) ; tante(ronja, jenzel) ; tante(wolfgang, elbeth).
+
+% Cousin / Cousine test
+
+test(cousin_menzel) :- cousin(jenzel, klaas), cousin(jenzel, ronja), cousin(ulf, klaas), cousin(ulf, ronja).
+test(cousin_laender) :- cousin(klaas, katrin), cousin(klaas, frauke), cousin(klaas, jenzel), cousin(klaas, ulf).
+
+
+test(cousin_f, [fail]) :- cousin(wolfgang, jenzel) ; cousin(jenzel, katrin) ; cousin(rolf, klaas) ; cousin(klaus, elsbeth) ; cousin(ulf, eva).
+
+
+% Halb geschwister
+
+test(halb_menzel) :- hgeschwister(jenzel, hansi), hgeschwister(ulf, hansi), hgeschwister(hansi, katrin), hgeschwister(hansi, frauke).
+test(halb_menzel_f, [fail]) :- hgeschwister(jenzel, jenzel) ; hgeschwister(jenzel, ulf) ; hgeschwister(jenzel, katrin) ; hgeschwister(hansi, elsbeth) ; hgeschwister(hansi, mia).
