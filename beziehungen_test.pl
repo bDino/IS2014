@@ -35,4 +35,12 @@ test(verheiratet) :- verheiratet(mia, rolf), verheiratet(rolf, mia), verheiratet
 
 test(verheiratet_f, [fail]) :- verheiratet(mia, wolfgang) ; verheiratet(elsbeth, thomas) ; verheiratet(eva, rolf) ; verheiratet(katrin, jenzel) ; verheiratet(ulf, ronja) ; verheiratet(frauke, rolf).
 
+
+% Onkel test
+test(onkel_th) :- onkel(thomas, jenzel), onkel(thomas, katrin), onkel(thomas, frauke), onkel(thomas, ulf).
+test(onkel_w) :- onkel(wolfgang, klaas), onkel(wolfgang, ronja).
+
+test(onkel_f_th, [fail]) :- onkel(thomas, eva) ; onkel(thomas, mia) ; onkel(thomas, klaas).
+test(onkel_f_wg, [fail]) :- onkel(wolfgang, elsbeth) ; onkel(wolfgang, rolf) ; onkel(wolfgang, thomas) ; onkel(wolfgang, jenzel).
+test(onkel_f_oth, [fail]) :- onkel(jenzel, wolfgang) ; onkel(katrin, klaas) ; onkel(klaas, ronja) ; onkel(ulf, rolf).
 :-end_tests(beziehungen).
