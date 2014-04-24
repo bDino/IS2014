@@ -22,6 +22,7 @@ maennlich(wolfgang).
 maennlich(jenzel).
 maennlich(ulf).
 
+
 % X ist von Y Beziehung (mutter(X,Y))
 mutter(mia,eva).																			
 mutter(mia,elsbeth).
