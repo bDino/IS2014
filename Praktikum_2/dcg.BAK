@@ -3,7 +3,8 @@ satz(SemS, struktur(IP, VP, PP)) -->  ip(IP, AGR),
                                       vp(SemVp, VP, AGR),
                                       pp(SemPP, PP, AGR),
                                       {
-                                          SemS=..[SemVp,SemPP,_]
+                                          SemVp= [_, SemPP|_],
+                                          SemS=..SemVP
                                       }.
                                       
 satz(SemS, struktur(VP, PP)) -->      vp(SemVp, VP, AGR),
@@ -15,6 +16,7 @@ satz(SemS, struktur(VP, PP)) -->      vp(SemVp, VP, AGR),
 vp(SemVp, vp(V, NP), AGR)   --> v(V, AGR), np(SemVp, NP, AGR).
 vp(SemVp, vp(V, PN), AGR)   --> v(V, AGR), pn(PN, AGR), np(SemVp, NP, AGR).
 np(SemNp, np(Art, N), AGR)  --> det(Art, AGR), n(SemNp, N, AGR).
+np(SemNp, np(N), AGR)       --> n(SemNp, N, AGR).
 
 
 
