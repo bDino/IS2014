@@ -3,6 +3,8 @@ IS2014
 
 HAW Hamburg - Intelligent Systems
 
+Praktikum 2: DCG
+
 Beispiel Anfragen an das DCG System
 
 satz(Semantik, Struktur, [wer, ist, die, tante, von, jenzel], []), Semantik, ans(Semantik, _, Antwort, []).
