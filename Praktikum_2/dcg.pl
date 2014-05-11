@@ -34,6 +34,8 @@ vp([SemNP, _, _], vp(V,NP), AGR) --> v(V, AGR), np(SemNP, NP, _).			% Verbalphra
 np(SemN, np(DET, N), AGR) 		 --> det(DET, AGR), n(SemN, N, AGR).		% Nominalphrase
 np(SemN, np(N), AGR) 			 --> n(SemN, N, AGR).
 pp(SemPN, pp(PRAE, PN), AGR) 	 --> prae(PRAE, AGR), pn(SemPN, PN, AGR).	% Präpositionalphrase
+ans(Sem, ans(EN,V,NP,PP)) --> en(SemEN, EN, AGR), v(V), np(SemNP, NP, AGR), pp(SemPP,PP), { Sem =.. [SemNP,SemEN, SemPP] }.
+en(SemEN, en(X), AGR) --> [X], { lex(X, person, AGR), SemEN = X }.
 
 % --- Terminale ---
 n(SemN, n(SemN), AGR) 			 --> [X], {lex(X, SemN, n, AGR)}.		% Nomen
