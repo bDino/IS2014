@@ -29,6 +29,13 @@ satz(SemS, struktur(V, PN, NP, PP)) --> v(V, AGR),
 											SemS =.. [SemNP, SemPN, SemPP]
 										}.
 
+ans(Sem, ans(PN,V,NP,PP)) 		 --> pn(SemPN, PN, AGR), 
+									 v(V, AGR),
+									 np(SemNP, NP, AGR), 
+									 pp(SemPP,PP, AGR), 
+									 { 
+									 	Sem =.. [SemNP,SemPN, SemPP] 
+									 }.
 
 vp([SemNP, _, _], vp(V,NP), AGR) --> v(V, AGR), np(SemNP, NP, _).			% Verbalphrase
 np(SemN, np(DET, N), AGR) 		 --> det(DET, AGR), n(SemN, N, AGR).		% Nominalphrase
