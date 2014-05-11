@@ -3,6 +3,12 @@ IS2014
 
 HAW Hamburg - Intelligent Systems
 
+Praktikum 1: Stammbaum
+
+Beispiel Anfrage
+
+onkel(thomas,jenzel).
+
 Praktikum 2: DCG
 
 Beispiel Anfragen an das DCG System
