@@ -1,4 +1,4 @@
-:-begin_tests(dcg).
+﻿:-begin_tests(dcg).
 :-consult(dcg).
 
 % Ergänzungsfragen
